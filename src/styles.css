@@ -1,0 +1,36 @@
+.App {
+  background-image: url('../public/corkboard.jpg');
+  background-color: brown;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+}
+.TitleBar {
+  background-color: white;
+  font-size: 50px;
+}
+.task-panel-container {
+  display: flex;
+  flex-direction: row;
+  border: 2px solid black;
+}
+@media (max-width: 500px) {
+  .task-panel-container {
+    flex-direction: column; /* Stacks the items vertically */
+  }
+}
+.task-panel {
+  background-color: white;
+  font-size: 50px;
+  border: 2px solid black;
+  margin: 10px;
+  padding: 10px;
+}
+.task-panel-title {
+  background-color: white;
+  font-size: 50px;
+  border-bottom: 2px solid black;
+}
