@@ -14,22 +14,32 @@
 }
 .task-panel-container {
   display: flex;
+  flex-direction: column;
+  border: 2px solid black;
+}
+.task-panel-header {
+  background-color: white;
+  font-size: 50px;
+  border-bottom: 2px solid black;
+}
+.task-panel {
+  display: flex;
   flex-direction: row;
   border: 2px solid black;
 }
 @media (max-width: 500px) {
-  .task-panel-container {
+  .task-panel {
     flex-direction: column; /* Stacks the items vertically */
   }
 }
-.task-panel {
+.task-panel-content {
   background-color: white;
   font-size: 50px;
   border: 2px solid black;
   margin: 10px;
   padding: 10px;
 }
-.task-panel-title {
+.task-panel-content-title {
   background-color: white;
   font-size: 50px;
   border-bottom: 2px solid black;

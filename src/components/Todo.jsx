@@ -1,11 +1,13 @@
 import '../styles.css';
 
-function Todo() {
+function Todo({ todoList }) {
   return (
-    <div className="task-panel">
-      <div className="task-panel-title">To Do</div>
-      <div className="task-panel-list">
-        List
+    <div className="task-panel-content">
+      <div className="task-panel-content-title">To Do</div>
+      <div className="task-panel-content-list">
+        {todoList.map((todoMsg) => (
+          <ul>{todoMsg}</ul>
+        ))}
       </div>
     </div>
   );
