@@ -6,8 +6,8 @@ function Done({ doneList }) {
       <div className="task-panel-content-title">Done</div>
 
       <div className="task-panel-content-list">
-      {doneList.map((doneMsg) => (
-          <ul>{doneMsg}</ul>
+        {doneList.map((doneMsg) => (
+          <ul className="task-item" draggable="true">{doneMsg}</ul>
         ))}
       </div>
     </div>

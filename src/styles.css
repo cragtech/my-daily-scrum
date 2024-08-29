@@ -44,3 +44,11 @@
   font-size: 50px;
   border-bottom: 2px solid black;
 }
+.task-item {
+  background-color: white;
+  font-size: 50px;
+  border: 2px solid red;
+  margin: 10px;
+  padding: 10px;
+  cursor: move;
+}

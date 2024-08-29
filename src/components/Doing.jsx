@@ -7,7 +7,7 @@ function Doing({ doingList }) {
 
       <div className="task-panel-content-list">
         {doingList.map((doingMsg) => (
-          <ul>{doingMsg}</ul>
+          <ul className="task-item" draggable="true">{doingMsg}</ul>
         ))}
       </div>
     </div>
