@@ -1,6 +1,10 @@
+import { useContext } from 'react';
+import TasksContext from './TasksContext';
 import '../styles.css';
 
-function Doing({ doingList }) {
+function Doing() {
+  const { doingList, setDoingList } = useContext(TasksContext);
+
   return (
     <div className="task-panel-content">
       <div className="task-panel-content-title">Doing</div>

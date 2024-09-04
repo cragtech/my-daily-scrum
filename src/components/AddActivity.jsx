@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+import { useState, useContext } from 'react';
+import TasksContext from './TasksContext';
+
 import {
   Button, TextField, Dialog,
   DialogActions, DialogContent, DialogContentText,
@@ -8,7 +10,9 @@ import {
 
 // import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
 
-function AddActivity({ todoList, setTodoList, setDoingList, doingList, doneList, setDoneList }) {
+function AddActivity() {
+  const { todoList, setTodoList, setDoingList, doingList, doneList, setDoneList } = useContext(TasksContext);
+
   const [open, setOpen] = useState(false);
   const [msg, setMsg] = useState('');
   const [category, setCategory] = useState('');
@@ -22,11 +26,13 @@ function AddActivity({ todoList, setTodoList, setDoingList, doingList, doneList,
   };
   const handleDialogClose = () => {
     setOpen(false);
+    setMsg('');
+    setCategory('');
   };
   const handleAddActivity = () => {
     if (category !== '' && msg !== '') {
       if (category === 'todoList') {
-        setTodoList([...todoList, msg]);
+        setTodoList([...todoList, {"text": msg, "status": "todo", "listIndex": todoList.length}]);
       } else if (category === 'doingList') {
         setDoingList([...doingList, msg]);
       } else if (category === 'doneList') {
@@ -75,7 +81,7 @@ function AddActivity({ todoList, setTodoList, setDoingList, doingList, doneList,
             id="name"
             label="Activity"
             // placeholder="Enter Activity Description"
-            placeholder="EEnter Activity Description"
+            placeholder="Enter Activity Description"
 
             type="text"
             multiline

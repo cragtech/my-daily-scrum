@@ -3,6 +3,7 @@ import './styles.css';
 import TitleBar from './components/TitleBar';
 
 import AddActivity from './components/AddActivity.jsx';
+import Demo from './components/Demo.jsx';
 import Todo from './components/Todo';
 import Doing from './components/Doing';
 import Done from './components/Done';
@@ -12,11 +13,12 @@ function App() {
   const [todoList, setTodoList] = useState([]);
   const [doingList, setDoingList] = useState([]);
   const [doneList, setDoneList] = useState([]);
+  const [activeCard, setActiveCard] = useState(null);
 
   return (
     <div className="App">
       <TitleBar />
-      <TasksContext.Provider value={{ todoList, setTodoList, doingList, setDoingList, doneList, setDoneList }}>
+      <TasksContext.Provider value={{ todoList, setTodoList, doingList, setDoingList, doneList, setDoneList, activeCard, setActiveCard }}>
         <div className="task-panel-container">
           <div className="task-panel-header">
             <AddActivity
@@ -27,13 +29,12 @@ function App() {
               setDoingList={setDoingList}
               setDoneList={setDoneList}
             />
+            <Demo />
           </div>
           <div className="task-panel">
-            <Todo
-            //todoList={todoList}
-            />
-            <Doing doingList={doingList} />
-            <Done doneList={doneList} />
+            <Todo />
+            <Doing />
+            <Done />
           </div>
         </div>
       </TasksContext.Provider>

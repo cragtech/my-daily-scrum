@@ -7,10 +7,36 @@
   flex-direction: column;
   justify-content: start;
   align-items: center;
+  font-size: 1rem;
 }
 .TitleBar {
   background-color: white;
-  font-size: 50px;
+  font-size: 4rem;
+}
+
+.demo-modal-box {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50vw;
+  background-color: white;
+  border: 2px solid #000;
+  box-shadow: 24px 24px 24px rgba(0, 0, 0, 0.2);
+  padding: 16px;
+}
+.demo-modal-box .close-icon {
+  align-self: flex-end;
+  border: 2px solid transparent;
+  border-radius: 10px;
+  margin-bottom: 5px;
+}
+.close-icon:hover {
+  color: red;
+  border: 2px solid red;
+  border-radius: 10px;
 }
 .task-panel-container {
   display: flex;
@@ -18,8 +44,12 @@
   border: 2px solid black;
 }
 .task-panel-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
   background-color: white;
-  font-size: 50px;
+  font-size: 4rem;
   border-bottom: 2px solid black;
 }
 .task-panel {
@@ -34,21 +64,51 @@
 }
 .task-panel-content {
   background-color: white;
-  font-size: 50px;
   border: 2px solid black;
   margin: 10px;
   padding: 10px;
 }
 .task-panel-content-title {
   background-color: white;
-  font-size: 50px;
+  font-size: 3rem;
   border-bottom: 2px solid black;
 }
 .task-item {
   background-color: white;
-  font-size: 50px;
-  border: 2px solid red;
+  border-bottom: 2px solid black;
+  border-right: 2px solid transparent;
+  border-left: 2px solid transparent;
+  border-top: 2px solid transparent;
+  border-radius: 2px;
   margin: 10px;
   padding: 10px;
-  cursor: move;
+}
+.task-item:hover {
+  cursor: pointer;
+  border: 2px solid red;
+  border-radius: 5px;
+
+}
+.task.item:active {
+  opacity: 0.7 ;
+  border: 2px solid green;
+}
+.task-item-delete {
+  cursor: pointer;
+}
+.task-item-delete:hover {
+  color: red;
+}
+.drop-area {
+  opacity: 0;
+  width: 100%;
+}
+  .drop-area-active {
+  background-color: white;
+  border: 2px dashed #dcdcdc;
+  columns: #dcdcdc;
+  margin: 10px;
+  padding: 10px;
+  opacity: 1;
+  transition: all 0.2s ease-in-out;
 }
