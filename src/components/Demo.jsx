@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { Button, Dialog, IconButton, DialogActions, Modal, Box } from '@mui/material';
+import { Button, IconButton, Modal, Box } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 
 
@@ -32,8 +32,8 @@ function Demo() {
           <iframe
             width="100%"
             height="315"
-            src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-            title="YouTube video player"
+            src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1"
+            title="Demo Video"
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen

@@ -1,40 +1,33 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import './styles.css';
 import TitleBar from './components/TitleBar';
 
 import AddActivity from './components/AddActivity.jsx';
 import Demo from './components/Demo.jsx';
-import Todo from './components/Todo';
-import Doing from './components/Doing';
-import Done from './components/Done';
+import TaskColumn from './components/TaskColumn.jsx';
 import TasksContext from './components/TasksContext';
 
 function App() {
-  const [todoList, setTodoList] = useState([]);
-  const [doingList, setDoingList] = useState([]);
-  const [doneList, setDoneList] = useState([]);
-  const [activeCard, setActiveCard] = useState(null);
+  const [activeCard, setActiveCard] = useState({"status": null, "taskIndex": null});
+  const [taskList, setTaskList] = useState([]);
+  const handleDelete = (taskIndex) => {
+    const newTaskList = taskList.filter((task, index) => index !== taskIndex);
+    setTaskList(newTaskList);
+  };
 
   return (
     <div className="App">
       <TitleBar />
-      <TasksContext.Provider value={{ todoList, setTodoList, doingList, setDoingList, doneList, setDoneList, activeCard, setActiveCard }}>
+      <TasksContext.Provider value={{ handleDelete, taskList, setTaskList, activeCard, setActiveCard }}>
         <div className="task-panel-container">
           <div className="task-panel-header">
-            <AddActivity
-              todoList={todoList}
-              doingList={doingList}
-              doneList={doneList}
-              setTodoList={setTodoList}
-              setDoingList={setDoingList}
-              setDoneList={setDoneList}
-            />
+            <AddActivity />
             <Demo />
           </div>
           <div className="task-panel">
-            <Todo />
-            <Doing />
-            <Done />
+            <TaskColumn taskColumnStatus="todo" taskTitle="To Do"/>
+            <TaskColumn taskColumnStatus="doing" taskTitle="Doing"/>
+            <TaskColumn taskColumnStatus="done" taskTitle="Done"/>
           </div>
         </div>
       </TasksContext.Provider>

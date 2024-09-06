@@ -3,15 +3,11 @@ import TasksContext from './TasksContext';
 
 import {
   Button, TextField, Dialog,
-  DialogActions, DialogContent, DialogContentText,
-  DialogTitle, Radio, RadioGroup, FormControl, FormLabel, FormControlLabel,
-  Select, MenuItem, InputLabel, Typography, Container, FormHelperText,
+  DialogActions, Radio, RadioGroup, FormControl, FormControlLabel, FormHelperText,
 } from '@mui/material';
 
-// import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
-
 function AddActivity() {
-  const { todoList, setTodoList, setDoingList, doingList, doneList, setDoneList } = useContext(TasksContext);
+  const { taskList, setTaskList } = useContext(TasksContext);
 
   const [open, setOpen] = useState(false);
   const [msg, setMsg] = useState('');
@@ -32,11 +28,11 @@ function AddActivity() {
   const handleAddActivity = () => {
     if (category !== '' && msg !== '') {
       if (category === 'todoList') {
-        setTodoList([...todoList, {"text": msg, "status": "todo", "listIndex": todoList.length}]);
+        setTaskList([...taskList, {"status": "todo", "text": msg }]);
       } else if (category === 'doingList') {
-        setDoingList([...doingList, msg]);
+        setTaskList([...taskList, {"status": "doing", "text": msg }]);
       } else if (category === 'doneList') {
-        setDoneList([...doneList, msg]);
+        setTaskList([...taskList, {"status": "done", "text": msg }]);
       }
       setOpen(false);
       setCategory('');

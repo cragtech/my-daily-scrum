@@ -1,19 +1,23 @@
 .App {
   background-image: url('../public/corkboard.jpg');
-  background-color: brown;
-  height: 100vh;
-  width: 100vw;
+  background-size: cover; /* Ensure the background image covers the entire container */
+  background-position: center;
+  min-height: 100vh;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: start;
   align-items: center;
   font-size: 1rem;
 }
+/* ---------------------------------------TitleBar-------------------------------- */
 .TitleBar {
   background-color: white;
   font-size: 4rem;
 }
+/* ---------------------------------------Modals-------------------------------- */
 
+/* ----------------DemoModal---------------- */
 .demo-modal-box {
   display: flex;
   flex-direction: column;
@@ -38,6 +42,66 @@
   border: 2px solid red;
   border-radius: 10px;
 }
+/* ----------------TaskEditModal---------------- */
+.task-edit-modal-box {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50vw;
+  background-color: white;
+  border: 2px solid #000;
+  box-shadow: 24px 24px 24px rgba(0, 0, 0, 0.2);
+  padding: 16px;
+}
+.task-edit-textarea-div {
+  display: flex;
+  flex-direction: column;
+}
+.task-edit-textarea {
+  align-self: center;
+  min-width: 100%;
+  min-height: 5rem;
+  box-sizing: border-box;
+
+  border: 2px solid black;
+  cursor: text;
+  padding: 5px;
+  word-wrap: break-word;
+}
+.task-edit-modal-box .close-icon {
+  align-self: flex-end;
+  border: 2px solid transparent;
+  border-radius: 10px;
+  margin-bottom: 5px;
+}
+.close-icon:hover {
+  color: red;
+  border: 2px solid red;
+  border-radius: 10px;
+}
+.task-edit-modal-box div input {
+  align-self: center;
+  min-width: 100%;
+  min-height: 3rem;
+  border: 2px solid black;
+  cursor: text;
+  padding: 5px;
+}
+.task-edit-modal-box .task-edit-save-button {
+  align-self: flex-end;
+  border-bottom: 2px solid transparent;
+  border-radius: 0px;
+  margin-bottom: 5px;
+}
+.task-edit-save-button:hover {
+  color: blue;
+  border-bottom: 2px solid blue;
+  border-radius: 0px;
+}
+/* ---------------------------------------TaskPanel-------------------------------- */
 .task-panel-container {
   display: flex;
   flex-direction: column;
@@ -55,11 +119,17 @@
 .task-panel {
   display: flex;
   flex-direction: row;
+  gap: 10px;
+  justify-content: space-around;
+  align-items: flex-start;
+  flex-wrap: wrap;
   border: 2px solid black;
 }
 @media (max-width: 500px) {
   .task-panel {
     flex-direction: column; /* Stacks the items vertically */
+    justify-content: center;
+    align-items: center;
   }
 }
 .task-panel-content {
@@ -67,6 +137,17 @@
   border: 2px solid black;
   margin: 10px;
   padding: 10px;
+  min-height: 35vh;
+  word-wrap: break-word;
+  max-width: 33%;
+}
+@media (max-width: 500px) {
+  .task-panel-content {
+    min-height: 20vh;
+    flex-direction: column; /* Stacks the items vertically */
+    justify-content: center;
+    align-items: center;
+  }
 }
 .task-panel-content-title {
   background-color: white;
@@ -74,14 +155,17 @@
   border-bottom: 2px solid black;
 }
 .task-item {
+  display: flex;
+  flex-direction: column;
   background-color: white;
   border-bottom: 2px solid black;
   border-right: 2px solid transparent;
   border-left: 2px solid transparent;
   border-top: 2px solid transparent;
   border-radius: 2px;
-  margin: 10px;
+  margin: 5px;
   padding: 10px;
+  max-width: 100%;
 }
 .task-item:hover {
   cursor: pointer;
@@ -90,8 +174,25 @@
 
 }
 .task.item:active {
-  opacity: 0.7 ;
+  opacity: 0.7;
   border: 2px solid green;
+}
+.task-item-text-box {
+  min-width: 50%;
+  padding: 10px;
+}
+.task-item-icons {
+  display: flex;
+  flex-direction: row;
+  align-self: flex-end;
+  flex-wrap: wrap;
+}
+.task-item-edit {
+  cursor: pointer;
+  margin-right: 10px;
+}
+.task-item-edit:hover {
+  color: blue;
 }
 .task-item-delete {
   cursor: pointer;
@@ -99,16 +200,17 @@
 .task-item-delete:hover {
   color: red;
 }
-.drop-area {
+/* -----------------------------------------DropArea--------------------------------------------- */
+.hide-drop {
   opacity: 0;
-  width: 100%;
 }
-  .drop-area-active {
+.drop-area {
   background-color: white;
   border: 2px dashed #dcdcdc;
   columns: #dcdcdc;
-  margin: 10px;
-  padding: 10px;
+  margin-bottom: 15px;
+  padding: 15px;
   opacity: 1;
-  transition: all 0.2s ease-in-out;
+  max-width: 100%;
+  transition: all 0.1s ease-in-out;
 }

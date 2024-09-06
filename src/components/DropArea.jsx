@@ -1,12 +1,17 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import '../styles.css';
+import TasksContext from './TasksContext';
+
 
 function DropArea({ onDrop }) {
   const [showDropArea, setShowDropArea] = useState(false);
+  const { activeCard } = useContext(TasksContext);
+
 
   return (
-    <div
-      className={showDropArea ? "drop-area-active" : "drop-area"}
+  <div
+      className={showDropArea ? "drop-area" : "hide-drop"}
+
       onDragEnter={() => setShowDropArea(true)}
       onDragLeave={() => setShowDropArea(false)}
       onDrop={() => {
@@ -18,6 +23,7 @@ function DropArea({ onDrop }) {
       Drop Here
     </div>
   );
+
 }
 
 export default DropArea;
