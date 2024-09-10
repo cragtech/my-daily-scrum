@@ -31,8 +31,8 @@ function Demo() {
           <IconButton className="close-icon" onClick={handleClose}> <CloseIcon /> </IconButton>
           <iframe
             width="100%"
-            height="315"
-            src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1"
+            height="500"
+            src="https://www.youtube.com/embed/ZtzpwNlwAYE?autoplay=1"
             title="Demo Video"
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
