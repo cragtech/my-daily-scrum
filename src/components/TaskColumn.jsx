@@ -20,7 +20,7 @@ function TaskColumn({ taskColumnStatus, taskTitle }) {
       } else {
         const taskToMove = taskList[activeCard["taskIndex"]];
         const updatedList = taskList.filter((task, index) => index !== activeCard["taskIndex"]);
-        const newList = updatedList.splice(position, 0, {
+        updatedList.splice(position, 0, {
           ...taskToMove,
           "status": dropStatus,
         })
