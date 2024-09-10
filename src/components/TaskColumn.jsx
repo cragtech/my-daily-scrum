@@ -24,7 +24,7 @@ function TaskColumn({ taskColumnStatus, taskTitle }) {
           ...taskToMove,
           "status": dropStatus,
         })
-        setTaskList(newList);
+        setTaskList(updatedList);
       }
     } else if (dropStatus !== activeCard["status"]) {
       const taskToMove = taskList[activeCard["taskIndex"]];
