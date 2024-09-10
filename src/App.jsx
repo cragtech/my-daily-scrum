@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './styles.css';
 import TitleBar from './components/TitleBar';
 
@@ -14,6 +14,10 @@ function App() {
     const newTaskList = taskList.filter((task, index) => index !== taskIndex);
     setTaskList(newTaskList);
   };
+
+  useEffect(() => {
+    console.log(taskList);
+  }, ["This is Task List: " + taskList]);
 
   return (
     <div className="App">

@@ -22,6 +22,7 @@ function TaskEdit({ taskIndex, taskText, setTaskText }) {
 
   const handleOpen = () => {
     setOpen(true);
+    setTaskEditText(taskText);
   };
   const handleClose = () => {
     setOpen(false);
@@ -29,7 +30,6 @@ function TaskEdit({ taskIndex, taskText, setTaskText }) {
 
   const handleCancel = () => {
     setOpen(false);
-    setTaskEditText(taskText);
     setUpdatedTaskList([]);
   };
 

@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import TasksContext from './TasksContext';
 import '../styles.css';
 import TaskCard from './TaskCard.jsx';
@@ -20,11 +20,11 @@ function TaskColumn({ taskColumnStatus, taskTitle }) {
       } else {
         const taskToMove = taskList[activeCard["taskIndex"]];
         const updatedList = taskList.filter((task, index) => index !== activeCard["taskIndex"]);
-        updatedList.splice(position, 0, {
+        const newList = updatedList.splice(position, 0, {
           ...taskToMove,
           "status": dropStatus,
         })
-        setTaskList(updatedList);
+        setTaskList(newList);
       }
     } else if (dropStatus !== activeCard["status"]) {
       const taskToMove = taskList[activeCard["taskIndex"]];
@@ -35,7 +35,9 @@ function TaskColumn({ taskColumnStatus, taskTitle }) {
       })
       setTaskList(updatedList);
     }
+    console.log(`Drop Status = ${dropStatus}, Drop Position = ${position}, Active Task Index = ${activeCard["taskIndex"]}, Active Task Status = ${activeCard["status"]}`);
   };
+
 
   return (
     <div className="task-panel-content">
